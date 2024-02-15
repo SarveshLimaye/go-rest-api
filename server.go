@@ -26,8 +26,6 @@ var Client *mongo.Client
 var DB *mongo.Database
 
 
-const mongoUri = "mongodb+srv://sarvesh:sarvesh2002@cluster0.anzgr.mongodb.net/Go-API?retryWrites=true&w=majority"
-
 type Book struct {
 	ID primitive.ObjectID `json:"_id,omitempty" bson:"_id,omitempty"`
 	Title string `json:"title,omitempty" bson:"title,omitempty"`
