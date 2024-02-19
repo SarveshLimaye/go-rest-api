@@ -19,15 +19,17 @@ func main() {
 		return c.SendString("Hello, World 👋!")
 	})
 
-	app.Get("/api/v1/books", controllers.GetBooks)
+	v1 := app.Group("/api/v1")
 
-	app.Post("/api/v1/books", controllers.CreateBook)
+	v1.Get("/books", controllers.GetBooks)
 
-	app.Get("/api/v1/books/:id", controllers.GetBookById)
+	v1.Post("/books", controllers.CreateBook)
 
-	app.Put("/api/v1/books/:id", controllers.UpdateBook)
+	v1.Get("/books/:id", controllers.GetBookById)
 
-	app.Delete("/api/v1/books/:id", controllers.DeleteBook)
+	v1.Put("/books/:id", controllers.UpdateBook)
+
+	v1.Delete("/books/:id", controllers.DeleteBook)
 
 	app.Listen(":3000")
 }
